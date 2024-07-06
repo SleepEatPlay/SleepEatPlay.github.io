@@ -10,35 +10,45 @@
   <header>
     <h1>八卦總是讓人想瞭解更多</h1>
     <nav>
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-      <a href="/chat/">Chat Forum</a>
-      <a href="/leaderboard/">Leaderboard</a>
+      <a href="/">主頁</a>
+      <a href="/blog/">燃燒吧！八卦之魂</a>
+      <a href="/chat/">嘰嘰喳喳論壇</a>
+      <a href="/leaderboard/">歷史盟員</a>
     </nav>
   </header>
   <main>
     <h2>最新八卦</h2>
-    <ul>
-      fetch('https://github.com/SleepEatPlay/SleepEatPlay.github.io/main/blog/posts/2024-07-06-speed.md')
-  .then(response => response.json())
-  .then(posts => {
-    // Handle and display posts dynamically
-    const ul = document.querySelector('ul#blog-posts');
-    posts.forEach(post => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <h3><a href="${post.url}">${post.title}</a></h3>
-        <p>${post.excerpt}</p>
-      `;
-      ul.appendChild(li);
-    });
-  })
-  .catch(error => console.error('Error fetching posts:', error));
-
+    <ul id="blog-posts">
+      <!-- Blog posts will be dynamically added here -->
     </ul>
   </main>
   <footer>
     <p>&copy; 2024 重建家園-明日之後聯盟 吹水站 All rights reserved.</p>
   </footer>
+
+  <script>
+    // Fetch blog posts from GitHub repository
+    fetch('https://api.github.com/repos/SleepEatPlay/SleepEatPlay.github.io/contents/blog/_posts')
+      .then(response => response.json())
+      .then(posts => {
+        const ul = document.querySelector('#blog-posts');
+        posts.forEach(post => {
+          if (post.name.endsWith('.md')) {
+            // Extract post metadata from filename
+            const [date, title] = post.name.split('-').slice(0, 2);
+            const url = `/blog/${post.name.replace('.md', '.html')}`; // Assuming posts are converted to HTML
+
+            // Create list item for each post
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <h3><a href="${url}">${title}</a></h3>
+              <p>${date}</p>
+            `;
+            ul.appendChild(li);
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching posts:', error));
+  </script>
 </body>
 </html>
