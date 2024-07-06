@@ -1,0 +1,6 @@
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
+
+title: [重建家園臺服1區-明日之後聯盟]
+description: [聯盟宗旨：無極很快，信米姐得永生]
