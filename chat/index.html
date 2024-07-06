@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>論壇</title>
+  <title>Chat Forum - Clan Website</title>
+  <link rel="stylesheet" href="/assets/main.css">
 </head>
 <body>
   <header>
-    <h1>Chat Forum</h1>
+    <h1>論壇</h1>
     <nav>
       <a href="/">Home</a>
       <a href="/blog/">Blog</a>
@@ -17,7 +18,20 @@
   </header>
   <main>
     <h2>Join the Conversation</h2>
-    <p>Coming soon...</p>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://your-disqus-shortname.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </main>
   <footer>
     <p>&copy; 2024 Clan Website. All rights reserved.</p>
