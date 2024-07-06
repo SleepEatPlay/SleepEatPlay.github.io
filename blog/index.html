@@ -36,9 +36,9 @@
           const fileName = post.name;
           if (fileName.endsWith('.md')) {
             // Extract date and title from the filename
-            const [year, month, day, ...titleArray] = fileName.split('-');
-            const date = `${year}-${month}-${day}`;
-            const title = titleArray.join(' ').replace('.md', ''); // Remove '.md' extension from title
+            const parts = fileName.split('-');
+            const date = `${parts[0]}-${parts[1]}-${parts[2]}`;
+            const title = parts.slice(3).join(' ').replace('.md', ''); // Remove '.md' extension from title
             const url = `/blog/${fileName.replace('.md', '.html')}`; // Assuming posts are converted to HTML
 
             // Create list item for each post
