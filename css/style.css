@@ -102,3 +102,34 @@ footer {
     width: 100%;
 }
 
+/* Add styles for cards and game layout */
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+    background-color: #fff;
+}
+
+.card.matched {
+    background-color: lightgreen;
+    cursor: default;
+}
+
