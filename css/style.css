@@ -133,3 +133,16 @@ footer {
     cursor: default;
 }
 
+.member-list {
+    margin-top: 20px;
+}
+
+.member-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.member-list li {
+    margin-bottom: 10px;
+}
+
