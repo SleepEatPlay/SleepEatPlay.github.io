@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>聯盟八卦</title>
-  <link rel="stylesheet" href="/assets/main.css">
+    <meta charset="UTF-8">
+    <title>明日之後 Clan - Blog</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>八卦總是讓人想瞭解更多</h1>
-    <nav>
-      <a href="/">主頁</a>
-      <a href="/blog/">燃燒吧！八卦之魂</a>
-      <a href="/chat/">嘰嘰喳喳論壇</a>
-      <a href="/leaderboard/">歷史盟員</a>
-    </nav>
-  </header>
-  <main>
-    <h2>最新八卦</h2>
-    <ul id="blog-posts">
-      <!-- Blog posts will be dynamically added here -->
-    </ul>
-  </main>
-  <footer>
-    <p>&copy; 2024 重建家園-明日之後聯盟 吹水站 All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Fetch blog posts from GitHub repository
-    fetch('https://api.github.com/repos/SleepEatPlay/SleepEatPlay.github.io/contents/blog/_posts')
-      .then(response => response.json())
-      .then(posts => {
-        const ul = document.querySelector('#blog-posts');
-        posts.forEach(post => {
-          const fileName = post.name;
-          if (fileName.endsWith('.md')) {
-            // Extract date and title from the filename
-            const parts = fileName.split('-');
-            const date = `${parts[0]}-${parts[1]}-${parts[2]}`;
-            const title = parts.slice(3).join(' ').replace('.md', ''); // Remove '.md' extension from title
-            const url = `/blog/${fileName.replace('.md', '.html')}`; // Assuming posts are converted to HTML
-
-            // Create list item for each post
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <h3><a href="${url}">${title}</a></h3>
-              <p>${date}</p>
-            `;
-            ul.appendChild(li);
-          }
-        });
-      })
-      .catch(error => console.error('Error fetching posts:', error));
-  </script>
+    <header>
+        <div class="container">
+            <h1>明日之後 Clan - Blog</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="members.html">Members</a>
+                <a href="games.html">Games</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="blog-posts">
+            <div class="container">
+                <h2>Latest Blog Posts</h2>
+                <div class="posts">
+                    <!-- Example blog post -->
+                    <div class="post">
+                        <h3><a href="blog/post-title.html">Example Blog Post Title</a></h3>
+                        <p class="post-meta">Posted on July 6, 2024</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <!-- Add more blog posts here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 明日之後 Clan. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
