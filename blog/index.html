@@ -33,10 +33,11 @@
       .then(posts => {
         const ul = document.querySelector('#blog-posts');
         posts.forEach(post => {
-          if (post.name.endsWith('.md')) {
-            // Extract post metadata from filename
-            const [date, title] = post.name.split('-').slice(0, 2);
-            const url = `/blog/${post.name.replace('.md', '.html')}`; // Assuming posts are converted to HTML
+          const fileName = post.name;
+          if (fileName.endsWith('.md')) {
+            // Extract date and title from the filename
+            const [date, title] = fileName.split('-').slice(0, 3); // Adjust slice index based on your naming convention
+            const url = `/blog/${fileName.replace('.md', '.html')}`; // Assuming posts are converted to HTML
 
             // Create list item for each post
             const li = document.createElement('li');
