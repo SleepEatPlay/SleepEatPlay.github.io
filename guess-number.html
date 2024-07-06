@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Number Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Guess the Number Game</h1>
+    </header>
+    <main>
+        <section id="game">
+            <p>Guess a number between 1 and 100:</p>
+            <input type="number" id="guess" min="1" max="100">
+            <button onclick="checkGuess()">Guess</button>
+            <p id="message"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 明日之後 Clan. All rights reserved.</p>
+    </footer>
+
+    <script src="js/guess-number.js"></script>
+</body>
+</html>
