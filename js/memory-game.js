@@ -59,6 +59,17 @@ function checkWin() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('start-game').addEventListener('click', startGame);
+document.addEventListener('DOMContentLoaded', function() {
+    // Place your existing code inside this function
+    const startGameButton = document.getElementById('start-game');
+
+    function startGame() {
+        // Your game initialization logic here
+    }
+
+    if (startGameButton) {
+        startGameButton.addEventListener('click', startGame);
+    } else {
+        console.error('Element with ID "start-game" not found.');
+    }
 });
